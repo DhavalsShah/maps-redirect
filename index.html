@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Location</title>
+  <script>
+    // Replace these with your location details
+    const googleMapsUrl = "https://www.google.com/maps?q=23.0224406,72.5205199"; // Example: Jodhpur community hall 
+    const appleMapsUrl  = "http://maps.apple.com/?q=23.0224406,72.5205199";
+
+    window.onload = function() {
+      const ua = navigator.userAgent.toLowerCase();
+
+      if (/iphone|ipad|ipod|macintosh/.test(ua)) {
+        window.location.href = appleMapsUrl; // Apple devices
+      } else {
+        window.location.href = googleMapsUrl; // Android + others
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting you to the map…</p>
+  <p>If nothing happens, <a id="mapLink" href="#">click here</a>.</p>
+  <script>
+    document.getElementById("mapLink").href = googleMapsUrl;
+  </script>
+</body>
+</html>
